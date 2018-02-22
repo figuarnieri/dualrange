@@ -61,7 +61,7 @@
   <input type="range" min="0" max="50" name="" id="">
   <script src="dualrange.min.js"></script>
   <script>
-    const letter = () => {const _subname = document.querySelector('.logo__subname');setTimeout(() => _subname.textContent = 'RANG3', 400);setTimeout(() => _subname.textContent = 'RANG1', 4000);setTimeout(() => _subname.textContent = 'RANGE', 7000);}setInterval(letter, 8000);letter();
+    const letter = () => {const _subname = document.querySelector('.logo__subname');setTimeout(() => _subname.textContent = 'RANG3', 400);setTimeout(() => _subname.textContent = 'RANG1', 4000);setTimeout(() => _subname.textContent = 'RANGE', 7000);};setInterval(letter, 8000);letter();
     new DualRange('[data-dualrange]', (e) => {
       document.querySelector('.minimum').textContent = e.min;
       document.querySelector('.maximum').textContent = e.max;
