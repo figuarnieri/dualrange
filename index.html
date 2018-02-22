@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{padding: 0;margin: 0;box-sizing: border-box;}
+    body{text-align: center;}
+    @keyframes logoCircleLeft {
+      0%{transform: translateX(0%);}
+      4%{transform: translateX(75%);}
+      41%{transform: translateX(75%);}
+      45%{transform: translateX(0%);}
+    }
+    @keyframes logoCircleRight {
+      45%{transform: translateX(0%);}
+      49%{transform: translateX(-75%);}
+      86%{transform: translateX(-75%);}
+      90%{transform: translateX(0%);}
+    }
+    @keyframes stageBgColor {
+      0%{background-color: #fee;}
+      50%{background-color: #ddd;}
+      100%{background-color: #fee;}
+    }
+
+    .stage{display: flex;height: 90vh;align-items: center;position: relative;overflow: hidden;animation: stageBgColor 8s infinite;}
+    .stage--content{width: 100%;}
+    .logo{width: 300px;}
+    .logo__name{font-family:'Century Gothic';fill:#e70;font-size:85px;font-weight: bold;letter-spacing:13px;}
+    .logo__subname{font-family:'Century Gothic';fill:#777;font-size:72px;letter-spacing: -0.5px;}
+    .logo__dash{fill:#f80;}
+    .logo__circle{fill:#fff;stroke: #f80;stroke-width: 3px;}
+    .logo__circle-left{animation: logoCircleLeft 8s infinite;}
+    .logo__circle-right{animation: logoCircleRight 8s infinite;}
+  </style>
+  <link rel="stylesheet" href="dualrange.min.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+  <div class="stage">
+    <div class="stage--content">
+      <svg class="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 170">
+        <text class="logo__name" transform="matrix(1 0 0 1 -6.42 61.6855)">DUAL</text>
+        <text class="logo__subname" transform="matrix(1 0 0 1 -6.0102 168.2666)">RANGE</text>
+        <rect class="logo__dash" x="1" y="87" width="243" height="4"/>
+        <path class="logo__circle logo__circle-left" d="M12.6,99.6c-6.1,0-11-4.9-11-11s4.9-11,11-11c6.1,0,11,4.9,11,11S18.6,99.6,12.6,99.6z"/>
+        <path class="logo__circle logo__circle-right" d="M232.1,99.3c-6.1,0-11-4.9-11-11s4.9-11,11-11c6.1,0,11,4.9,11,11S238.2,99.3,232.1,99.3z"/>
+      </svg>
+      <div class="stage__buttons">
+        <a class="github-button" href="https://github.com/figuarnieri/dualrange" data-icon="octicon-star" data-size="large" aria-label="Star figuarnieri/dualrange on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/figuarnieri/dualrange/archive/master.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download figuarnieri/dualrange on GitHub">Download</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <input type="range" data-dualrange min="5" max="18" name="" id="">
+  <div>Min:<span class="minimum">5</span> - Max:<span class="maximum">18</span></div>
+  <input type="range" min="0" max="50" name="" id="">
+  <script src="dualrange.min.js"></script>
+  <script>
+    const letter = () => {const _subname = document.querySelector('.logo__subname');setTimeout(() => _subname.textContent = 'RANG3', 400);setTimeout(() => _subname.textContent = 'RANG1', 4000);setTimeout(() => _subname.textContent = 'RANGE', 7000);}setInterval(letter, 8000);letter();
+    new DualRange('[data-dualrange]', (e) => {
+      document.querySelector('.minimum').textContent = e.min;
+      document.querySelector('.maximum').textContent = e.max;
+    });
+  </script>
+</body>
+</html>
