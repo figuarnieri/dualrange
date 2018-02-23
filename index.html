@@ -58,8 +58,12 @@
     .custom-class .dualrange__min, .custom-class .dualrange__max{border-radius: 6px;}
     .custom-class .dualrange__min{border-color: #09f;}
     .custom-class .dualrange__max{border-color: #09f;}
+    .custom-class .dualrange__min:after, .custom-class .dualrange__max:after{border-color: #09f;}
+    @media (max-width: 768px){
+      .content__box{width: 100%;}
+    }
   </style>
-  <link rel="stylesheet" href="dualrange.min.css">
+  <link rel="stylesheet" href="dualrange.css">
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
@@ -162,17 +166,14 @@
       document.querySelector('.example__max-1').textContent = e.max;
     });
     new DualRange('[data-example-two]', (e) => {
-      console.log(e);
       document.querySelector('.example__min-2').textContent = e.min;
       document.querySelector('.example__max-2').textContent = e.max;
     });
     new DualRange('[data-example-three]', (e) => {
-      console.log(e);
       document.querySelector('.example__min-3').textContent = e.min;
       document.querySelector('.example__max-3').textContent = e.max;
     });
     new DualRange('[data-example-four]', (e) => {
-      console.log(e);
       document.querySelector('.example__min-4').textContent = e.min;
       document.querySelector('.example__max-4').textContent = e.max;
     });
