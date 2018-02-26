@@ -8,7 +8,7 @@ class DualRange {
       if(!item.max){item.max=100;}
       if(!item.min){item.min=0;}
       item.setAttribute('value', item.max||100);
-      item.setAttribute('step', item.step||0.1);
+      item.setAttribute('step', item.step||1);
       item.setAttribute('data-dualrange-max', '');
       item.outerHTML = `<div class="dualrange ${_inputClass}" data-dualrange-valmin="${item.min}" data-dualrange-valmax="${item.max}"><input data-dualrange-min step="0.1" type="range" min="${item.min}" max="${item.max}" value="${item.min}" class="dualrange__input-min">${item.outerHTML}<div class="dualrange__min" style="left: 0%; transform: translate(0%, -50%);"></div><div class="dualrange__max" style="left: 100%; transform: translate(-100%, -50%);"></div><div class="dualrange__range"></div></div>`;
       this.init(_parent, callback);
@@ -30,8 +30,8 @@ class DualRange {
       _steps = parseFloat(_child[0].step),
       _event = new Event('input');
       if(_min > _max){
-        _child[0].value = _min - _steps;
-        _child[1].value = _max + _steps;
+        _child[0].value = _min - Math.max(1, _steps);
+        _child[1].value = _max + Math.max(1, _steps);
         _child[0].dispatchEvent(_event);
         _child[1].dispatchEvent(_event);
         return false;
@@ -48,6 +48,8 @@ class DualRange {
         }, 10);
       }
     });
+
+    tag.name = tag.className==='dualrange__input-min' ? `${tag.nextElementSibling.name}[]` : `${tag.name}[]`;
 
     _parent.addEventListener('mousemove', event => {
       const _x = event.offsetX,

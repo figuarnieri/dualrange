@@ -119,6 +119,10 @@ or
 &lt;<span class="code__tag">script</span>&gt;</code>
     </section>
     <section class="content__section">
+      <h3 class="content__h2">Request / Response</h3>
+      <p>To retrieve input range values on the server, the concatenated name will be sent with a "[]". So, if you select &lt;input type="range" name="RangeValues"&gt; or name RangeValues will be converted to RangeValues []. This makes it easy for some languages to retrieve multiple values on the server</p>
+    </section>
+    <section class="content__section">
       <h2 class="content__h2">Examples</h2>
       <div class="content__examples">
         <article class="content__box">
@@ -227,6 +231,10 @@ or
       new DualRange('[data-example-five]', (e) => {
         document.querySelector('.example__min-5').textContent = e.min;
         document.querySelector('.example__max-5').textContent = e.max;
+      });
+      new DualRange('[multiple]', (e) => {
+        document.querySelector('.lalala').textContent = e.min;
+        document.querySelector('.lelele').textContent = e.max;
       });
     })();
   </script>
