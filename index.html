@@ -44,6 +44,7 @@
     .content__p a{text-decoration: none;color: #e70;font-weight: bold;transition: color 0.3s;}
     .content__p a:hover{color: #000;}
     .content__section{margin-bottom: 20px;}
+    .content__section em{font-weight: bold;}
     .content__examples{display: flex;flex-wrap: wrap;}
     .content__examples .dualrange{width: 100%;}
     .example__values{display: flex;justify-content: space-between;}
@@ -117,6 +118,10 @@ or
     <span class="code__important">document.querySelector</span>(<span class="code__value">'.max'</span>).textContent <span class="code__tag">=</span> e.max;
   });</span>
 &lt;<span class="code__tag">script</span>&gt;</code>
+    </section>
+    <section class="content__section">
+      <h3 class="content__h2">Request / Response</h3>
+      <p>To retrieve input range values on the server, the concatenated name will be sent with a "[]". So, if you write <em>&lt;input type="range" name="RangeValues"&gt;</em>, the name <em>RangeValues</em> will be converted to <em>RangeValues[]</em>. This makes it easy for some languages to retrieve multiple values on the server</p>
     </section>
     <section class="content__section">
       <h2 class="content__h2">Examples</h2>
