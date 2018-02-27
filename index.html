@@ -61,6 +61,7 @@
     .code__value{color: #e6db74;}
     .code__important{color: #66d9ef;font-weight: bold;font-style: italic;}
 
+    /* Example "Custom Style Class" */
     .custom-class .dualrange__range{background-color: #09f;}
     .custom-class .dualrange__min, .custom-class .dualrange__max{border-radius: 6px;border-color: #09f;}
     .custom-class .dualrange__min:before, .custom-class .dualrange__max:before{background-color: #059;box-shadow: 0 0 4px #059;}
@@ -71,7 +72,10 @@
       .stage{background-image: none;background-color: #eee;}
     }
   </style>
-  <link rel="stylesheet" href="dualrange.css">
+
+  <link rel="stylesheet" href="dualrange.min.css">
+  <script async src="dualrange.min.js"></script>
+
 </head>
 <body>
   <div class="stage__links">
@@ -208,9 +212,8 @@ or
     </section>
   </div>
 
-  <script src="dualrange.js"></script>
   <script>
-    (function(){
+    addEventListener('load', () => {
       const letter = () => {const _subname = document.querySelector('.logo__subname');setTimeout(() => _subname.textContent = 'RANG3', 400);setTimeout(() => _subname.textContent = 'RANG1', 4000);setTimeout(() => _subname.textContent = 'RANGE', 7000);};setInterval(letter, 8000);letter();
 
       new DualRange('[data-example-one]', (e) => {
@@ -233,7 +236,7 @@ or
         document.querySelector('.example__min-5').textContent = e.min;
         document.querySelector('.example__max-5').textContent = e.max;
       });
-    })();
+    });
   </script>
 </body>
 </html>
